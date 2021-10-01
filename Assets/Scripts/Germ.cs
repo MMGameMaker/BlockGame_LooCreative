@@ -34,7 +34,6 @@ public class Germ : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (sr.sprite == null) return;
         if (sr.sprite == null)
         {
             SoundManager.Instance.PlaySound(SoundType.TypePop);
