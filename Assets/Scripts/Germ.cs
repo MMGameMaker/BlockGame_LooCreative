@@ -23,6 +23,7 @@ public class Germ : MonoBehaviour
 
     public void Select()
     {
+        SoundManager.Instance.PlaySound(SoundType.TypeSelect);
         sr.color = Color.grey;
     }
 
@@ -34,6 +35,11 @@ public class Germ : MonoBehaviour
     private void OnMouseDown()
     {
         if (sr.sprite == null) return;
+        if (sr.sprite == null)
+        {
+            SoundManager.Instance.PlaySound(SoundType.TypePop);
+            return;
+        }
         if (selected != null)
         {
             if (selected == this)
@@ -41,6 +47,7 @@ public class Germ : MonoBehaviour
             selected.Unselect();
             if(Vector2Int.Distance(selected.Position, Position) == 1)
             {
+                SoundManager.Instance.PlaySound(SoundType.TypeMove);
                 GridManager.Instance.SwapGerms(selected.Position, this.Position);
                 selected = null;
             }

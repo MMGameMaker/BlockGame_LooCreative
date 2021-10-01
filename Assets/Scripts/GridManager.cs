@@ -129,6 +129,8 @@ public class GridManager : MonoBehaviour
         renderer1.sprite = renderer2.sprite;
         renderer2.sprite = temp;
 
+        SoundManager.Instance.PlaySound(SoundType.TypeMove);
+
         do
         {
             FillHoles();
@@ -264,6 +266,8 @@ public class GridManager : MonoBehaviour
 
     public void PauseGame()
     {
+        SoundManager.Instance.PlaySound(SoundType.TypeGameOver);
+
         for(int x = 0; x < gridDimension; x++)
         {
             for(int y=0; y < gridDimension; y++)
